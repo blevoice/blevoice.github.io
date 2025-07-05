@@ -20,8 +20,8 @@ rtl                      : # true, false (default) # turns direction of the page
 title                    : "Site Title"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Your Name"
-description              : "An amazing website."
+name                     : "Voice and Bluetooth"
+description              : "Voice and Bluetooth Products or Projects Sharing"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -113,12 +113,12 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Voice and Bluetooth"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
+  bio              : "I'm an embedded electronics engineer who has been devoted to researching and developing products and projects related to Bluetooth chips/modules, voice chips/modules. Looking forward to exchanging ideas and making progress together with you all."
   location         : "Somewhere"
-  email            :
-  links:
+  email            : "info@blevoice.com"
+  links:"https://www.aliexpress.com/store/1104656113"
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       # url: "mailto:your.name@email.com"
