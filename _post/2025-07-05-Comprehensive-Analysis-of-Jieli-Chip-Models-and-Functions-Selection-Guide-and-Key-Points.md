@@ -1,7 +1,7 @@
 ---
 # 文章Front Matter (YAML元数据块)
 title: "Comprehensive Analysis of Jieli Chip Models and Functions: Selection Guide and Key Points"
-date: 2023-08-25  # 发布日期，格式YYYY-MM-DD
+date: 2025-07-05  # 发布日期，格式YYYY-MM-DD
 categories:
   - Chip Technology
   - Selection Guide
@@ -10,7 +10,7 @@ tags:
   - Bluetooth Chip
   - Audio Decoding
   - IoT
-author: Your Name  # 作者名
+author: Jim Tsui # 作者名
 header:
   image: /assets/images/070401.png  # 头图路径（需已存放在/assets/images/）
   teaser: /assets/images/070401.png  # 缩略图路径
