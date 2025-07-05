@@ -4,7 +4,7 @@ title: "Comprehensive Analysis of Jieli Chip Models and Functions: Selection Gui
 date: 2025-07-05  # 发布日期，格式YYYY-MM-DD
 categories: [Chip Technology, Selection Guide]
 tags: [Jieli Chip, Bluetooth Chip, Audio Decoding, IoT]
-author: Jim Tsui  # 作者名
+layout: post       # Minimal Mistakes 主题必需
 ---
 
 ## I. Overview of Jieli Chip Application Areas
