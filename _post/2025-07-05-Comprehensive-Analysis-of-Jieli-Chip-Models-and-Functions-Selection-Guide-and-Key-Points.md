@@ -2,8 +2,8 @@
 # 文章Front Matter (YAML元数据块)
 title: "Comprehensive Analysis of Jieli Chip Models and Functions: Selection Guide and Key Points"
 date: 2025-07-05  # 发布日期，格式YYYY-MM-DD
-categories:[Chip Technology, Selection Guide]
-tags:[Jieli Chip, Bluetooth Chip, Audio Decoding, IoT]
+categories: [Chip Technology, Selection Guide]
+tags: [Jieli Chip, Bluetooth Chip, Audio Decoding, IoT]
 ---
 
 ## I. Overview of Jieli Chip Application Areas
