@@ -2,19 +2,8 @@
 # 文章Front Matter (YAML元数据块)
 title: "Comprehensive Analysis of Jieli Chip Models and Functions: Selection Guide and Key Points"
 date: 2025-07-05  # 发布日期，格式YYYY-MM-DD
-categories:
-  - Chip Technology
-  - Selection Guide
-tags:
-  - Jieli Chip
-  - Bluetooth Chip
-  - Audio Decoding
-  - IoT
-author: Jim Tsui # 作者名
-header:
-  image: /assets/images/070401.png  # 头图路径（需已存放在/assets/images/）
-  teaser: /assets/images/070401.png  # 缩略图路径
-excerpt: "Jieli chips are widely used in 8 major areas including headphones, speakers and wearables. This guide details key selection factors."  # 文章摘要
+categories:[Chip Technology, Selection Guide]
+tags:[Jieli Chip, Bluetooth Chip, Audio Decoding, IoT]
 ---
 
 ## I. Overview of Jieli Chip Application Areas
