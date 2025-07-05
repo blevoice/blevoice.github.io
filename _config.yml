@@ -127,7 +127,7 @@ author:
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
     - label: "TikTok"
-      icon: "fab fa-fw fa-TikTok"
+      icon: "fab fa-fw fa-tiktok"
       url: "https://www.tiktok.com/@blevoice"
 
 # Site Footer
@@ -152,13 +152,13 @@ footer:
       icon: "fab fa-fw fa-instagram"
       # url:
     - label: "LinkedIn"
-      icon: "fab fa-fw fa-LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/company/blevoice/"
     - label: "TikTok"
-      icon: "fab fa-fw fa-TikTok"
+      icon: "fab fa-fw fa-tiktok"
       url: "https://www.tiktok.com/@blevoice"
     - label: "AliExpress"
-      icon: "fab fa-fw fa-AliExpress"
+      icon: "fab fa-fw fa-aliexpress"
       url: "https://www.aliexpress.com/store/1104656113"    
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
