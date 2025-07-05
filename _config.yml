@@ -151,6 +151,9 @@ footer:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-LinkedIn"
+      url: "https://www.linkedin.com/company/blevoice/"
     - label: "TikTok"
       icon: "fab fa-fw fa-TikTok"
       url: "https://www.tiktok.com/@blevoice"
