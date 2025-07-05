@@ -107,14 +107,10 @@ analytics:
 # Site Author
 author:
   name             : "Voice and Bluetooth"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I'm an embedded electronics engineer who has been devoted to researching and developing products and projects related to Bluetooth chips/modules, voice chips/modules. Looking forward to exchanging ideas and making progress together with you all."
+  avatar           : "/assets/images/bio-photo.jpg"
+  bio              : "Embedded engineer, Voice and Bluetooth expert"
   location         : "Shenzhen, China"
-  email            : "WilliamTsui@blevoice.com"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "WilliamTsui@blevoice.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://www.aliexpress.com/store/1104656113"
@@ -160,7 +156,10 @@ footer:
       url: "https://www.tiktok.com/@blevoice"
     - label: "AliExpress"
       icon: "fab fa-fw fa-AliExpress"
-      url: "https://www.aliexpress.com/store/1104656113"      
+      url: "https://www.aliexpress.com/store/1104656113"    
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "WilliamTsui@blevoice.com"
 
 # Reading Files
 include:
