@@ -1,10 +1,19 @@
 ---
-layout: archive
+layout: default
 ---
-
-{{ content }}
-
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="entries-{{ entries_layout }}">
-  {% include documents-collection.html collection=page.collection sort_by=page.sort_by sort_order=page.sort_order type=entries_layout %}
+<div class="collection">
+  <h1>{{ page.title }}</h1>
+  
+  <div class="entries">
+    {% for doc in site[page.collection] %}
+      <article>
+        <h2><a href="{{ doc.url }}">{{ doc.title }}</a></h2>
+        {% if doc.date %}
+          <time datetime="{{ doc.date | date_to_xmlschema }}">
+            {{ doc.date | date: "%B %d, %Y" }}
+          </time>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
 </div>
