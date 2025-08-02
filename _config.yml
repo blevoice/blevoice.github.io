@@ -324,3 +324,17 @@ defaults:
       comments: # true
       share: true
       related: true
+
+collections:
+  bluetooth:
+    output: true
+    permalink: /bluetooth/:name/
+  voice:
+    output: true
+    permalink: /voice/:name/
+  jieli:
+    output: true
+    permalink: /jieli/:name/
+  datasheet:
+    output: true
+    permalink: /datasheet/:name/
