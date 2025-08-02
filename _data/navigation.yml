@@ -2,11 +2,11 @@
 main:
   - title: "Quick-Get Sample"
     url: https://www.aliexpress.com/store/1104656113
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+  - title: "Bluetooth"
+    url: https://blevoice.github.io/bluetooth/
+  - title: "Voice"
+    url: https://blevoice.github.io/voice/
+  - title: "Zhuhai JieLi"
+    url: https://blevoice.github.io/jieli/
+  - title: "Specification Datasheet"
+    url: https://blevoice.github.io/datasheet/
