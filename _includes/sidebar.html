@@ -6,39 +6,57 @@
       <!-- 保留原有sidebar内容 -->
       {% for s in page.sidebar %}
         {% if s.image %}
-          <img src="{{ s.image | relative_url }}" alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}">
+          <img src="{{ s.image | relative_url }}" 
+               alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}"
+               class="sidebar-image">
         {% endif %}
-        {% if s.title %}<h3>{{ s.title }}</h3>{% endif %}
-        {% if s.text %}{{ s.text | markdownify }}{% endif %}
+        {% if s.title %}<h3 class="sidebar-title">{{ s.title }}</h3>{% endif %}
+        {% if s.text %}<div class="sidebar-text">{{ s.text | markdownify }}</div>{% endif %}
         {% if s.nav %}{% include nav_list nav=s.nav %}{% endif %}
       {% endfor %}
+      {% if page.sidebar.nav %}
+        {% include nav_list nav=page.sidebar.nav %}
+      {% endif %}
     {% endif %}
 
     <!-- 新增文档分类导航 -->
-    {% unless page.hide_doc_nav %}  <!-- 添加控制开关 -->
+    {% unless page.hide_doc_nav %}
       <div class="doc-categories">
-        <h3>文档分类</h3>
+        <h3 class="doc-categories-title">文档分类</h3>
         <nav class="nav__list">
           {% for item in site.data.navigation.main %}
-            <details class="nav__items">
+            {% assign collection_name = item.title | downcase | replace: ' ', '-' %}
+            {% assign collection = site[collection_name] %}
+            
+            <details class="nav__items" {% if page.collection == collection_name %}open{% endif %}>
               <summary class="nav__subtitle">
-                <a href="{{ item.url }}">{{ item.title }}</a>
+                <a href="{{ item.url }}" class="nav__link">{{ item.title }}</a>
               </summary>
-              <ul>
-                {% assign collection_name = item.title | downcase %}
-                {% assign docs = site[collection_name] | sort: "date" | reverse %}
-                {% for doc in docs limit:5 %}  <!-- 限制显示数量 -->
-                  <li>
-                    <a href="{{ doc.url }}" class="{% if doc.url == page.url %}active{% endif %}">
-                      {{ doc.title }}
-                      {% if doc.path contains '.pdf' %}<span class="pdf-label">PDF</span>{% endif %}
-                    </a>
-                  </li>
-                {% endfor %}
-                {% if docs.size > 5 %}
-                  <li><a href="{{ item.url }}">查看更多...</a></li>
-                {% endif %}
-              </ul>
+              
+              {% if collection %}
+                <ul class="nav__sublist">
+                  {% assign sorted_docs = collection | sort: "date" | reverse %}
+                  {% for doc in sorted_docs limit:5 %}
+                    <li class="nav__sublist-item">
+                      <a href="{{ doc.url }}" 
+                         class="{% if doc.url == page.url %}active{% endif %}"
+                         data-format="{% if doc.path contains '.pdf' %}pdf{% else %}md{% endif %}">
+                        {{ doc.title }}
+                        {% if doc.path contains '.pdf' %}
+                          <span class="pdf-label">PDF</span>
+                        {% endif %}
+                      </a>
+                    </li>
+                  {% endfor %}
+                  {% if sorted_docs.size > 5 %}
+                    <li class="nav__sublist-more">
+                      <a href="{{ item.url }}">查看更多 ({{ sorted_docs.size | minus: 5 }}+)</a>
+                    </li>
+                  {% endif %}
+                </ul>
+              {% else %}
+                <p class="nav__empty">暂无文档</p>
+              {% endif %}
             </details>
           {% endfor %}
         </nav>
