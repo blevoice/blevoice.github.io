@@ -313,17 +313,28 @@ compress_html:
 
 # Defaults
 defaults:
-  # _posts
   - scope:
-      path: ""
+      path: "_bluetooth/_posts"
       type: posts
     values:
       layout: single
       author_profile: true
-      read_time: true
-      comments: # true
-      share: true
-      related: true
+  - scope:
+      path: "_voice/_posts"
+      type: posts
+    values:
+      layout: single
+  - scope:
+      path: "_jieli/_posts"
+      type: posts
+    values:
+      layout: single
+  - scope:
+      path: "_datasheet/_posts"
+      type: posts
+    values:
+      layout: single
+
 
 
 collections:
