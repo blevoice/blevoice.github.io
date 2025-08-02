@@ -1,12 +1,12 @@
 # main links
 main:
+  - title: "Bluetooth"
+    url: /bluetooth/
+  - title: "Voice"
+    url: /voice/
+  - title: "Zhuhai JieLi"
+    url: /jieli/
+  - title: "Specification Datasheet"
+    url: /datasheet/
   - title: "Quick-Get Sample"
     url: https://www.aliexpress.com/store/1104656113
-  - title: "Bluetooth"
-    url: https://blevoice.github.io/bluetooth/
-  - title: "Voice"
-    url: https://blevoice.github.io/voice/
-  - title: "Zhuhai JieLi"
-    url: https://blevoice.github.io/jieli/
-  - title: "Specification Datasheet"
-    url: https://blevoice.github.io/datasheet/
