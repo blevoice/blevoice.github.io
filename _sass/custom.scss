@@ -1,6 +1,8 @@
 @import "minimal-mistakes/variables";  // 继承主题变量
 
-/* _sass/custom.scss */
+/* ==========================================================================
+   自定义样式
+   ========================================================================== */
 
 // 文档分类侧边栏样式
 .doc-categories {
@@ -53,5 +55,107 @@
     padding: 0.1em 0.4em;
     border-radius: 2px;
     margin-left: 0.5em;
+  }
+}
+
+/* ==========================================================================
+   集合文档统一样式
+   ========================================================================== */
+
+// 集合通用样式
+.collection__item {
+  position: relative;
+  border-left: 3px solid;
+  padding-left: 1.2em;
+  margin-bottom: 1.8em;
+  transition: transform 0.3s ease;
+  background: rgba($background-color, 0.7);
+  padding: 1em;
+  border-radius: 4px;
+
+  &:hover {
+    transform: translateX(5px);
+    background: rgba($background-color, 0.9);
+  }
+
+  .archive__item-title {
+    font-size: 1.15em;
+    margin-bottom: 0.3em;
+    line-height: 1.4;
+  }
+
+  .collection-meta {
+    font-size: 0.8em;
+    color: $muted-text-color;
+    margin-top: 0.5em;
+  }
+}
+
+// 集合专属颜色标识
+$bluetooth-color: #4285f4;
+$voice-color: #ea4335;
+$jieli-color: #34a853;
+$datasheet-color: #fbbc05;
+
+.collection-bluetooth__item {
+  border-color: $bluetooth-color;
+  box-shadow: 0 2px 4px rgba($bluetooth-color, 0.1);
+}
+.collection-voice__item {
+  border-color: $voice-color;
+  box-shadow: 0 2px 4px rgba($voice-color, 0.1);
+}
+.collection-jieli__item {
+  border-color: $jieli-color;
+  box-shadow: 0 2px 4px rgba($jieli-color, 0.1);
+}
+.collection-datasheet__item {
+  border-color: $datasheet-color;
+  box-shadow: 0 2px 4px rgba($datasheet-color, 0.1);
+}
+
+// 徽章样式
+.pdf-badge,
+.collection-badge {
+  display: inline-block;
+  color: white;
+  font-size: 0.65em;
+  padding: 0.2em 0.6em;
+  border-radius: 12px;
+  margin-left: 0.7em;
+  vertical-align: text-top;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.pdf-badge {
+  background: #e74c3c;
+}
+
+.collection-badge {
+  &[data-collection="bluetooth"] { background: $bluetooth-color; }
+  &[data-collection="voice"] { background: $voice-color; }
+  &[data-collection="jieli"] { background: $jieli-color; }
+  &[data-collection="datasheet"] { background: $datasheet-color; }
+}
+
+/* ==========================================================================
+   响应式调整
+   ========================================================================== */
+
+@include breakpoint($medium) {
+  .collection__item {
+    padding: 1.2em;
+    
+    .archive__item-title {
+      font-size: 1.25em;
+    }
+  }
+  
+  .pdf-badge,
+  .collection-badge {
+    font-size: 0.7em;
+    padding: 0.25em 0.7em;
   }
 }
