@@ -2,11 +2,15 @@
 main:
   - title: "Bluetooth"
     url: /bluetooth/
+    sidebar_active: true  # 新增选中状态控制
   - title: "Voice"
     url: /voice/
+    sidebar_active: true  # 新增选中状态控制
   - title: "Zhuhai JieLi"
     url: /jieli/
+    sidebar_active: true  # 新增选中状态控制
   - title: "Specification Datasheet"
     url: /datasheet/
+    sidebar_active: true  # 新增选中状态控制
   - title: "Quick-Get Sample"
     url: https://www.aliexpress.com/store/1104656113/
