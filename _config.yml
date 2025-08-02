@@ -332,7 +332,16 @@ collections:
     permalink: /bluetooth/:name/
   voice:
     output: true
-    permalink: /voice/:name/
+    permalink: /voice/:path/
+    defaults:
+      - scope:
+          path: ""
+          type: voice
+        values:
+          layout: single
+          show_in_home: true
+          toc: true
+          toc_sticky: true
   jieli:
     output: true
     permalink: /jieli/:name/
