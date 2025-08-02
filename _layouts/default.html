@@ -1,6 +1,3 @@
----
----
-
 <!doctype html>
 {% include copyright.html %}
 <html lang="{{ site.locale | replace: "_", "-" | default: "en" }}" class="no-js">
@@ -14,7 +11,40 @@
     {% include_cached masthead.html %}
 
     <div class="initial-content">
-      {{ content }}
+      {% if page.collection %}
+        <!-- 集合内容展示区 -->
+        <div class="collection-container">
+          <h1 class="page__title">{{ page.title }}</h1>
+          
+          <div class="collection-archive">
+            {% assign documents = site[page.collection] | sort: "date" | reverse %}
+            {% for doc in documents %}
+              <article class="collection-item">
+                <h2>
+                  <a href="{{ doc.url | relative_url }}" class="collection-link">
+                    {{ doc.title }}
+                    {% if doc.path contains '.pdf' %}
+                      <span class="pdf-badge">PDF</span>
+                    {% endif %}
+                  </a>
+                </h2>
+                {% if doc.date %}
+                  <time datetime="{{ doc.date | date_to_xmlschema }}" class="collection-meta">
+                    {{ doc.date | date: "%B %d, %Y" }}
+                  </time>
+                {% endif %}
+                {% if doc.excerpt %}
+                  <p class="collection-excerpt">{{ doc.excerpt }}</p>
+                {% endif %}
+              </article>
+            {% endfor %}
+          </div>
+        </div>
+      {% else %}
+        <!-- 默认内容区 -->
+        {{ content }}
+      {% endif %}
+      
       {% include after-content.html %}
     </div>
 
