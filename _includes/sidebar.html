@@ -19,19 +19,25 @@
       {% endif %}
     {% endif %}
 
-    <!-- 新增文档分类导航 -->
+    <!-- 文档分类导航（优化版） -->
     {% unless page.hide_doc_nav %}
       <div class="doc-categories">
         <h3 class="doc-categories-title">文档分类</h3>
         <nav class="nav__list">
           {% for item in site.data.navigation.main %}
-            {% assign collection_name = item.title | downcase | replace: ' ', '-' %}
-            {% assign collection = site[collection_name] %}
+            {% assign current = nil %}
+            {% if page.url contains item.url %}
+              {% assign current = 'active' %}
+            {% endif %}
             
-            <details class="nav__items" {% if page.collection == collection_name %}open{% endif %}>
-              <summary class="nav__subtitle">
-                <a href="{{ item.url }}" class="nav__link">{{ item.title }}</a>
-              </summary>
+            <div class="nav__items {{ current }}">
+              <a href="{{ item.url }}" class="nav__link">
+                {{ item.title }}
+                {% if current %}<span class="active-indicator">›</span>{% endif %}
+              </a>
+              
+              {% assign collection_name = item.title | downcase | replace: ' ', '-' %}
+              {% assign collection = site[collection_name] %}
               
               {% if collection %}
                 <ul class="nav__sublist">
@@ -54,10 +60,8 @@
                     </li>
                   {% endif %}
                 </ul>
-              {% else %}
-                <p class="nav__empty">暂无文档</p>
               {% endif %}
-            </details>
+            </div>
           {% endfor %}
         </nav>
       </div>
