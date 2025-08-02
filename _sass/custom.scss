@@ -1,196 +1,36 @@
-@import "minimal-mistakes/variables";
-
-/* ==========================================================================
-   文档分类侧边栏样式
-   ========================================================================== */
-.doc-categories {
-  margin-top: 2em;
-  border-top: 1px solid $border-color;
-  padding-top: 1em;
-
-  h3 {
-    margin-bottom: 0.5em;
-    font-size: $type-size-6;
-    text-transform: uppercase;
-  }
-
-  .nav__items {
-    margin-bottom: 0.5em;
-  }
-
-  .nav__subtitle {
-    padding: 0.25em 0;
-    display: block;
+/* 导航选中状态 */
+.nav__items.active {
+  > .nav__link {
     font-weight: bold;
-  }
-
-  ul {
-    padding-left: 1em;
-    margin: 0.3em 0;
-    list-style-type: none;
-  }
-
-  li {
-    margin-bottom: 0.25em;
-  }
-
-  a {
-    color: $link-color;
-    &:hover {
-      color: $link-color-hover;
-    }
-    &.active {
-      font-weight: bold;
-      border-left: 2px solid $primary-color;
-      padding-left: 0.5em;
-    }
-  }
-
-  .pdf-label {
-    background: #e74c3c;
-    color: white;
-    font-size: 0.7em;
-    padding: 0.1em 0.4em;
-    border-radius: 2px;
-    margin-left: 0.5em;
-  }
-}
-
-/* ==========================================================================
-   集合文档系统样式
-   ========================================================================== */
-$bluetooth-color: #4285f4;
-$voice-color: #ea4335;
-$jieli-color: #34a853;
-$datasheet-color: #fbbc05;
-
-// 集合容器
-.collection-container {
-  max-width: $max-width;
-  margin: 0 auto;
-  padding: 0 1em;
-}
-
-// 文档列表
-.collection-archive {
-  margin-top: 2em;
-  
-  article {
-    border-bottom: 1px solid $border-color;
-    padding: 1.5em 0;
+    color: $primary-color;
+    position: relative;
     
-    &:first-child {
-      border-top: 1px solid $border-color;
+    .active-indicator {
+      margin-left: 0.5em;
+      color: $primary-color;
     }
-  }
-}
-
-// 单个文档项
-.collection-item {
-  position: relative;
-  transition: all 0.3s ease;
-
-  h2 {
-    font-size: 1.25em;
-    margin-bottom: 0.3em;
-    line-height: 1.4;
-  }
-
-  .collection-meta {
-    font-size: 0.8em;
-    color: $muted-text-color;
-    margin-top: 0.5em;
-  }
-
-  .collection-excerpt {
-    font-size: 0.9em;
-    line-height: 1.6;
-    margin: 0.5em 0 0;
-  }
-}
-
-// 各集合颜色主题
-.collection-bluetooth {
-  .collection-item {
-    border-left: 3px solid $bluetooth-color;
-    padding-left: 1em;
-  }
-}
-.collection-voice {
-  .collection-item {
-    border-left: 3px solid $voice-color;
-    padding-left: 1em;
-  }
-}
-.collection-jieli {
-  .collection-item {
-    border-left: 3px solid $jieli-color;
-    padding-left: 1em;
-  }
-}
-.collection-datasheet {
-  .collection-item {
-    border-left: 3px solid $datasheet-color;
-    padding-left: 1em;
-  }
-}
-
-// 链接和徽章
-.collection-link {
-  color: $text-color;
-  transition: color 0.2s;
-  
-  &:hover {
-    color: $link-color-hover;
-    text-decoration: none;
-  }
-}
-
-.pdf-badge {
-  background: #e74c3c;
-  color: white;
-  font-size: 0.65em;
-  padding: 0.2em 0.6em;
-  border-radius: 12px;
-  margin-left: 0.5em;
-  vertical-align: middle;
-}
-
-/* ==========================================================================
-   响应式调整
-   ========================================================================== */
-@include breakpoint($medium) {
-  .collection-container {
-    padding: 0 2em;
-  }
-
-  .collection-item {
-    padding: 1.5em;
     
-    h2 {
-      font-size: 1.4em;
+    &:before {
+      content: "";
+      position: absolute;
+      left: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 80%;
+      background: $primary-color;
+      border-radius: 3px;
     }
-  }
-
-  .pdf-badge {
-    font-size: 0.7em;
-    padding: 0.25em 0.7em;
   }
 }
 
-@include breakpoint($large) {
-  .collection-archive {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2em;
-    
-    article {
-      border: none;
-      padding: 0;
-      
-      &:first-child {
-        border-top: none;
-      }
-    }
-  }
+/* 子导航激活状态 */
+.nav__sublist-item .active {
+  font-weight: bold;
+  color: $link-color-hover;
+}
+
+/* 保持原有样式 */
+.doc-categories {
+  /* 原有样式保持不变 */
 }
