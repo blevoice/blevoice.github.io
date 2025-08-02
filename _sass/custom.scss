@@ -1,10 +1,8 @@
-@import "minimal-mistakes/variables";  // 继承主题变量
+@import "minimal-mistakes/variables";
 
 /* ==========================================================================
-   自定义样式
+   文档分类侧边栏样式
    ========================================================================== */
-
-// 文档分类侧边栏样式
 .doc-categories {
   margin-top: 2em;
   border-top: 1px solid $border-color;
@@ -59,27 +57,41 @@
 }
 
 /* ==========================================================================
-   集合文档统一样式
+   集合文档系统样式
    ========================================================================== */
+$bluetooth-color: #4285f4;
+$voice-color: #ea4335;
+$jieli-color: #34a853;
+$datasheet-color: #fbbc05;
 
-// 集合通用样式
-.collection__item {
-  position: relative;
-  border-left: 3px solid;
-  padding-left: 1.2em;
-  margin-bottom: 1.8em;
-  transition: transform 0.3s ease;
-  background: rgba($background-color, 0.7);
-  padding: 1em;
-  border-radius: 4px;
+// 集合容器
+.collection-container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 1em;
+}
 
-  &:hover {
-    transform: translateX(5px);
-    background: rgba($background-color, 0.9);
+// 文档列表
+.collection-archive {
+  margin-top: 2em;
+  
+  article {
+    border-bottom: 1px solid $border-color;
+    padding: 1.5em 0;
+    
+    &:first-child {
+      border-top: 1px solid $border-color;
+    }
   }
+}
 
-  .archive__item-title {
-    font-size: 1.15em;
+// 单个文档项
+.collection-item {
+  position: relative;
+  transition: all 0.3s ease;
+
+  h2 {
+    font-size: 1.25em;
     margin-bottom: 0.3em;
     line-height: 1.4;
   }
@@ -89,73 +101,96 @@
     color: $muted-text-color;
     margin-top: 0.5em;
   }
+
+  .collection-excerpt {
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin: 0.5em 0 0;
+  }
 }
 
-// 集合专属颜色标识
-$bluetooth-color: #4285f4;
-$voice-color: #ea4335;
-$jieli-color: #34a853;
-$datasheet-color: #fbbc05;
+// 各集合颜色主题
+.collection-bluetooth {
+  .collection-item {
+    border-left: 3px solid $bluetooth-color;
+    padding-left: 1em;
+  }
+}
+.collection-voice {
+  .collection-item {
+    border-left: 3px solid $voice-color;
+    padding-left: 1em;
+  }
+}
+.collection-jieli {
+  .collection-item {
+    border-left: 3px solid $jieli-color;
+    padding-left: 1em;
+  }
+}
+.collection-datasheet {
+  .collection-item {
+    border-left: 3px solid $datasheet-color;
+    padding-left: 1em;
+  }
+}
 
-.collection-bluetooth__item {
-  border-color: $bluetooth-color;
-  box-shadow: 0 2px 4px rgba($bluetooth-color, 0.1);
-}
-.collection-voice__item {
-  border-color: $voice-color;
-  box-shadow: 0 2px 4px rgba($voice-color, 0.1);
-}
-.collection-jieli__item {
-  border-color: $jieli-color;
-  box-shadow: 0 2px 4px rgba($jieli-color, 0.1);
-}
-.collection-datasheet__item {
-  border-color: $datasheet-color;
-  box-shadow: 0 2px 4px rgba($datasheet-color, 0.1);
-}
-
-// 徽章样式
-.pdf-badge,
-.collection-badge {
-  display: inline-block;
-  color: white;
-  font-size: 0.65em;
-  padding: 0.2em 0.6em;
-  border-radius: 12px;
-  margin-left: 0.7em;
-  vertical-align: text-top;
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 0.5px;
+// 链接和徽章
+.collection-link {
+  color: $text-color;
+  transition: color 0.2s;
+  
+  &:hover {
+    color: $link-color-hover;
+    text-decoration: none;
+  }
 }
 
 .pdf-badge {
   background: #e74c3c;
-}
-
-.collection-badge {
-  &[data-collection="bluetooth"] { background: $bluetooth-color; }
-  &[data-collection="voice"] { background: $voice-color; }
-  &[data-collection="jieli"] { background: $jieli-color; }
-  &[data-collection="datasheet"] { background: $datasheet-color; }
+  color: white;
+  font-size: 0.65em;
+  padding: 0.2em 0.6em;
+  border-radius: 12px;
+  margin-left: 0.5em;
+  vertical-align: middle;
 }
 
 /* ==========================================================================
    响应式调整
    ========================================================================== */
-
 @include breakpoint($medium) {
-  .collection__item {
-    padding: 1.2em;
+  .collection-container {
+    padding: 0 2em;
+  }
+
+  .collection-item {
+    padding: 1.5em;
     
-    .archive__item-title {
-      font-size: 1.25em;
+    h2 {
+      font-size: 1.4em;
     }
   }
-  
-  .pdf-badge,
-  .collection-badge {
+
+  .pdf-badge {
     font-size: 0.7em;
     padding: 0.25em 0.7em;
+  }
+}
+
+@include breakpoint($large) {
+  .collection-archive {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2em;
+    
+    article {
+      border: none;
+      padding: 0;
+      
+      &:first-child {
+        border-top: none;
+      }
+    }
   }
 }
