@@ -1,21 +1,22 @@
-{% if page.sidebar_nav or layout.sidebar_nav %}
-  {% assign nav = page.sidebar_nav | default: layout.sidebar_nav %}
-  <div class="sidebar sticky">
-    {% if site.author_profile %}{% include author-profile.html %}{% endif %}
-    <nav class="nav__list">
-      {% for item in site.data.navigation[nav] %}
-        <input type="radio" 
-               name="nav-radio" 
-               id="nav-{{ item.title | slugify }}" 
-               {% if page.url contains item.url %}checked{% endif %}>
-        <label for="nav-{{ item.title | slugify }}" 
-               class="nav__item {% if page.url contains item.url %}active{% endif %}">
-          <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-        </label>
-      {% endfor %}
-    </nav>
-  </div>
-{% endif %}
+<div class="sidebar sticky">
+  {% if site.author_profile %}{% include author-profile.html %}{% endif %}
+  <nav class="nav__list">
+    {% for item in site.data.navigation.main %}
+      {% assign current = nil %}
+      {% if page.url contains item.url %}
+        {% assign current = 'active' %}
+      {% endif %}
+      <a href="{{ item.url | relative_url }}" 
+         class="nav__item {{ current }}" 
+         data-collection="{{ item.title | downcase }}">
+        {{ item.title }}
+        {% if current %}
+          <span class="active-indicator">›</span>
+        {% endif %}
+      </a>
+    {% endfor %}
+  </nav>
+</div>
 
     <!-- 新增文档分类导航 -->
     {% unless page.hide_doc_nav %}
