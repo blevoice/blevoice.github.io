@@ -310,74 +310,126 @@ compress_html:
   ignore:
     envs: development
 
-
-# Defaults
+# 在 defaults 部分添加以下配置
 defaults:
   - scope:
-      path: "_bluetooth/_posts"
-      type: posts
+      path: ""
     values:
-      layout: single
-      author_profile: true
-  - scope:
-      path: "_voice/_posts"
-      type: posts
-    values:
-      layout: single
-  - scope:
-      path: "_jieli/_posts"
-      type: posts
-    values:
-      layout: single
-  - scope:
-      path: "_datasheet/_posts"
-      type: posts
-    values:
-      layout: single
+      sidebar:
+        nav: "main"  # 强制所有页面显示主导航
+        author_profile: true  # 强制显示作者信息
+
+
+# # Defaults
+# defaults:
+#   - scope:
+#       path: "_bluetooth/_posts"
+#       type: posts
+#     values:
+#       layout: single
+#       author_profile: true
+#   - scope:
+#       path: "_voice/_posts"
+#       type: posts
+#     values:
+#       layout: single
+#   - scope:
+#       path: "_jieli/_posts"
+#       type: posts
+#     values:
+#       layout: single
+#   - scope:
+#       path: "_datasheet/_posts"
+#       type: posts
+#     values:
+#       layout: single
 
 
 
+# 集合配置增加永久导航标记
 collections:
   bluetooth:
     output: true
-    permalink: /bluetooth/:name/
+    permalink: /bluetooth/:path/
     defaults:
       - scope:
           path: "_bluetooth"
-          type: bluetooth
         values:
           layout: single
-          show_in_home: true
-
+          sidebar_nav: "main"  # 特殊标记用于JS处理
+  
   voice:
     output: true
-    permalink: /voice/:name/
+    permalink: /voice/:path/
     defaults:
       - scope:
           path: "_voice"
-          type: voice
         values:
           layout: single
-          show_in_home: true
+          sidebar_nav: "main"  # 特殊标记用于JS处理
 
   jieli:
     output: true
-    permalink: /jieli/:name/
+    permalink: /jieli/:path/
     defaults:
       - scope:
           path: "_jieli"
-          type: jieli
         values:
           layout: single
-          show_in_home: true
+          sidebar_nav: "main"  # 特殊标记用于JS处理
 
   datasheet:
     output: true
-    permalink: /datasheet/:name/
+    permalink: /datasheet/:path/
     defaults:
       - scope:
           path: "_datasheet"
-          type: datasheet
         values:
           layout: single
-          show_in_home: true
+          sidebar_nav: "main"  # 特殊标记用于JS处理
+
+
+# collections:
+#   bluetooth:
+#     output: true
+#     permalink: /bluetooth/:name/
+#     defaults:
+#       - scope:
+#           path: "_bluetooth"
+#           type: bluetooth
+#         values:
+#           layout: single
+#           show_in_home: true
+
+#   voice:
+#     output: true
+#     permalink: /voice/:name/
+#     defaults:
+#       - scope:
+#           path: "_voice"
+#           type: voice
+#         values:
+#           layout: single
+#           show_in_home: true
+
+#   jieli:
+#     output: true
+#     permalink: /jieli/:name/
+#     defaults:
+#       - scope:
+#           path: "_jieli"
+#           type: jieli
+#         values:
+#           layout: single
+#           show_in_home: true
+
+#   datasheet:
+#     output: true
+#     permalink: /datasheet/:name/
+#     defaults:
+#       - scope:
+#           path: "_datasheet"
+#           type: datasheet
+#         values:
+#           layout: single
+#           show_in_home: true
