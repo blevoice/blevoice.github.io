@@ -330,21 +330,43 @@ collections:
   bluetooth:
     output: true
     permalink: /bluetooth/:name/
-  voice:
-    output: true
-    permalink: /voice/:path/
     defaults:
       - scope:
-          path: ""
+          path: "_bluetooth"
+          type: bluetooth
+        values:
+          layout: single
+          show_in_home: true
+
+  voice:
+    output: true
+    permalink: /voice/:name/
+    defaults:
+      - scope:
+          path: "_voice"
           type: voice
         values:
           layout: single
           show_in_home: true
-          toc: true
-          toc_sticky: true
+
   jieli:
     output: true
     permalink: /jieli/:name/
+    defaults:
+      - scope:
+          path: "_jieli"
+          type: jieli
+        values:
+          layout: single
+          show_in_home: true
+
   datasheet:
     output: true
     permalink: /datasheet/:name/
+    defaults:
+      - scope:
+          path: "_datasheet"
+          type: datasheet
+        values:
+          layout: single
+          show_in_home: true
