@@ -1,0 +1,55 @@
+/* _sass/custom.scss */
+
+// 文档分类侧边栏样式
+.doc-categories {
+  margin-top: 2em;
+  border-top: 1px solid $border-color;
+  padding-top: 1em;
+
+  h3 {
+    margin-bottom: 0.5em;
+    font-size: $type-size-6;
+    text-transform: uppercase;
+  }
+
+  .nav__items {
+    margin-bottom: 0.5em;
+  }
+
+  .nav__subtitle {
+    padding: 0.25em 0;
+    display: block;
+    font-weight: bold;
+  }
+
+  ul {
+    padding-left: 1em;
+    margin: 0.3em 0;
+    list-style-type: none;
+  }
+
+  li {
+    margin-bottom: 0.25em;
+  }
+
+  a {
+    color: $link-color;
+    &:hover {
+      color: $link-color-hover;
+    }
+    &.active {
+      font-weight: bold;
+      border-left: 2px solid $primary-color;
+      padding-left: 0.5em;
+    }
+  }
+
+  .pdf-label {
+    background: #e74c3c;
+    color: white;
+    font-size: 0.7em;
+    padding: 0.1em 0.4em;
+    border-radius: 2px;
+    margin-left: 0.5em;
+  }
+}
