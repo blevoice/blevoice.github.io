@@ -1,25 +1,27 @@
-/* 导航选中状态 */
+/* 导航选中状态 - 保留原有样式 */
 .nav__items.active {
   > .nav__link {
     font-weight: bold;
     color: $primary-color;
     position: relative;
+    font-size: 0.9em; /* 新增：调小选中项字体 */
     
     .active-indicator {
       margin-left: 0.5em;
       color: $primary-color;
+      font-size: 0.8em; /* 新增：调整指示器大小 */
     }
     
     &:before {
       content: "";
       position: absolute;
-      left: -15px;
+      left: -12px; /* 调整：向左微调 */
       top: 50%;
       transform: translateY(-50%);
-      width: 5px;
-      height: 80%;
+      width: 4px; /* 调整：变细 */
+      height: 70%; /* 调整：缩短 */
       background: $primary-color;
-      border-radius: 3px;
+      border-radius: 2px;
     }
   }
 }
@@ -28,9 +30,32 @@
 .nav__sublist-item .active {
   font-weight: bold;
   color: $link-color-hover;
+  font-size: 0.85em; /* 新增：调小子项字体 */
 }
 
-/* 保持原有样式 */
+/* 新增：导航栏基础字体控制 */
 .doc-categories {
-  /* 原有样式保持不变 */
+  .nav__list {
+    font-size: 0.85rem; /* 整体调小导航字体 */
+
+    .nav__items > .nav__link {
+      font-size: 0.9em; /* 主分类字体 */
+      padding: 0.3em 0.5em; /* 紧凑间距 */
+    }
+
+    .nav__sublist {
+      font-size: 0.82em; /* 子项更小 */
+
+      .nav__sublist-item a {
+        padding: 0.2em 1em 0.2em 1.5em; /* 子项缩进 */
+      }
+    }
+  }
+}
+
+/* 新增：响应式调整 */
+@include breakpoint($medium) {
+  .doc-categories .nav__list {
+    font-size: 0.8rem; /* 屏幕较小时更紧凑 */
+  }
 }
