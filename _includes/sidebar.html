@@ -1,70 +1,43 @@
-{% if page.author_profile or layout.author_profile or page.sidebar %}
+{% if page.author_profile or layout.author_profile %}
   <div class="sidebar sticky">
-    {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
+    {% include author-profile.html %}
     
-    {% if page.sidebar %}
-      <!-- 保留原有sidebar内容 -->
-      {% for s in page.sidebar %}
-        {% if s.image %}
-          <img src="{{ s.image | relative_url }}" 
-               alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}"
-               class="sidebar-image">
-        {% endif %}
-        {% if s.title %}<h3 class="sidebar-title">{{ s.title }}</h3>{% endif %}
-        {% if s.text %}<div class="sidebar-text">{{ s.text | markdownify }}</div>{% endif %}
-        {% if s.nav %}{% include nav_list nav=s.nav %}{% endif %}
-      {% endfor %}
-      {% if page.sidebar.nav %}
-        {% include nav_list nav=page.sidebar.nav %}
-      {% endif %}
-    {% endif %}
-
-    <!-- 文档分类导航（优化版） -->
-    {% unless page.hide_doc_nav %}
-      <div class="doc-categories">
-        <h3 class="doc-categories-title">文档分类</h3>
-        <nav class="nav__list">
-          {% for item in site.data.navigation.main %}
-            {% assign current = nil %}
-            {% if page.url contains item.url %}
-              {% assign current = 'active' %}
-            {% endif %}
+    <div class="doc-categories">
+      <nav class="nav__list">
+        {% for item in site.data.navigation.main %}
+          {% assign current = nil %}
+          {% if page.url contains item.url %}
+            {% assign current = 'active' %}
+          {% endif %}
+          
+          <div class="nav__items {{ current }}">
+            <a href="{{ item.url }}" class="nav__link">
+              {{ item.title }}
+              {% if current %}<span class="active-indicator">›</span>{% endif %}
+            </a>
             
-            <div class="nav__items {{ current }}">
-              <a href="{{ item.url }}" class="nav__link">
-                {{ item.title }}
-                {% if current %}<span class="active-indicator">›</span>{% endif %}
-              </a>
-              
-              {% assign collection_name = item.title | downcase | replace: ' ', '-' %}
-              {% assign collection = site[collection_name] %}
-              
-              {% if collection %}
-                <ul class="nav__sublist">
-                  {% assign sorted_docs = collection | sort: "date" | reverse %}
-                  {% for doc in sorted_docs limit:5 %}
-                    <li class="nav__sublist-item">
-                      <a href="{{ doc.url }}" 
-                         class="{% if doc.url == page.url %}active{% endif %}"
-                         data-format="{% if doc.path contains '.pdf' %}pdf{% else %}md{% endif %}">
-                        {{ doc.title }}
-                        {% if doc.path contains '.pdf' %}
-                          <span class="pdf-label">PDF</span>
-                        {% endif %}
-                      </a>
-                    </li>
-                  {% endfor %}
-                  {% if sorted_docs.size > 5 %}
-                    <li class="nav__sublist-more">
-                      <a href="{{ item.url }}">查看更多 ({{ sorted_docs.size | minus: 5 }}+)</a>
-                    </li>
-                  {% endif %}
-                </ul>
-              {% endif %}
-            </div>
-          {% endfor %}
-        </nav>
-      </div>
-    {% endunless %}
+            {% assign collection_name = item.title | downcase | replace: ' ', '-' %}
+            {% assign collection = site[collection_name] %}
+            
+            {% if collection %}
+              <ul class="nav__sublist">
+                {% assign sorted_docs = collection | sort: "date" | reverse %}
+                {% for doc in sorted_docs limit:5 %}
+                  <li class="nav__sublist-item">
+                    <a href="{{ doc.url }}" 
+                       class="{% if doc.url == page.url %}active{% endif %}">
+                      {{ doc.title }}
+                      {% if doc.path contains '.pdf' %}
+                        <span class="pdf-label">PDF</span>
+                      {% endif %}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </nav>
+    </div>
   </div>
 {% endif %}
